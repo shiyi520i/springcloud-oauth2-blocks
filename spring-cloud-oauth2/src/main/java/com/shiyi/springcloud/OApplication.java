@@ -1,14 +1,15 @@
 package com.shiyi.springcloud;
 
+import com.shiyi.springcloud.swagger.annotation.EnableBlockSwagger3;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.oas.annotations.EnableOpenApi;
+
 
 /**
  * @author ：ShiYI
  * @date ：Created in 2021/9/30
  */
-@EnableOpenApi
+@EnableBlockSwagger3
 @SpringBootApplication
 public class OApplication {
     public static void main(String[] args) {

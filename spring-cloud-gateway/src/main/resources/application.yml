@@ -1,0 +1,16 @@
+
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: after_route
+          uri: lb://spring-cloud-order
+          predicates:
+            - After=2018-12-25T14:33:47.789+08:00
+server:
+  port: 9527
