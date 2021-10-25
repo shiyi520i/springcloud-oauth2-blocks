@@ -19,3 +19,13 @@
 | Mybatis Plus           | 3.4.3.4  |
 | hutool                 | 5.7.14   |
 ### 模块说明
+```markdown
+模块说明blocks    
+springcloudplus
+├── spring-cloud-auth -- 授权服务提供[3000] [未完成]
+└── spring-cloud-commons -- 系统公共模块
+     ├── block-swagger -- swagger模块
+     ├── block-test -- 测试模块
+├── pig-register -- Nacos Server[8848]
+├── spring-cloud-gateway -- Spring Cloud Gateway网关[9527] 
+```
