@@ -1,0 +1,63 @@
+#######优于application加载#######
+
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      # 跨域配置
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+     # enabled: true
+        # @link:https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#the-loadbalancerclient-filter
+        # 当service实例不存在时默认返回503，显示配置返回404
+      loadbalancer:
+        use404: true
+        # 根据注册中心自动配置routes
+        # @link :https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#the-discoveryclient-route-definition-locator
+        # 效果：/serviceId/path1/args ==> /path1/args
+      #discovery:
+       # locator:
+        # lower-case-service-id: true
+        # enabled: true
+      routes:
+          # 系统模块
+        - id: spring-cloud-order
+          uri: lb://spring-cloud-order
+          #uri: http://localhost:8070
+          predicates:
+           - Path=/spring-cloud-order/**
+          filters:
+              #- SwaggerHeaderFilter
+              #- StripPrefix=1
+        # 系统模块
+       # - id: spring-cloud-consumer
+          #uri: lb://spring-cloud-order
+         # uri: http://localhost:8080
+         # predicates:
+         #   - Path=/spring-cloud-consumer/**
+        #  filters:
+            # - SwaggerHeaderFilter
+          #  - StripPrefix=1
+
+
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 9527
+
