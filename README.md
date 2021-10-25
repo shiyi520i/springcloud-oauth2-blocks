@@ -1,4 +1,5 @@
 # springcloud-oauth2-blocks
+![Build Status](https://img.shields.io/badge/blocks-1.0-success.svg) ![Build Status](https://img.shields.io/badge/Spring%20cloud-2020-blue.svg) ![Build Status](https://img.shields.io/badge/SpringBoot-2.4-blue.svg) 
 ## 系统说明
 
 - 基于 Spring Cloud 2020 、Spring Boot 2.4、 OAuth2 的 RBAC **权限管理系统**
