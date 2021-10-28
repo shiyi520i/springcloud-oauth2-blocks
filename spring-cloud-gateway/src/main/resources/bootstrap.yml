@@ -36,11 +36,10 @@ spring:
               #- SwaggerHeaderFilter
               #- StripPrefix=1
         # 系统模块
-       # - id: spring-cloud-consumer
-          #uri: lb://spring-cloud-order
-         # uri: http://localhost:8080
-         # predicates:
-         #   - Path=/spring-cloud-consumer/**
+        - id: spring-cloud-consumer
+          uri: lb://spring-cloud-consumer
+          predicates:
+            - Path=/spring-cloud-consumer/**
         #  filters:
             # - SwaggerHeaderFilter
           #  - StripPrefix=1
