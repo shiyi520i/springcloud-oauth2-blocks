@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.cloud.gateway.config.GatewayProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RequestPredicates;
 import org.springframework.web.reactive.function.server.RouterFunction;
@@ -26,6 +27,7 @@ import springfox.documentation.swagger.web.UiConfigurationBuilder;
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.REACTIVE)
 public class GatewaySwaggerAutoConfiguration {
 
+	@Primary
 	@Bean
 	public SwaggerProvider swaggerProvider(SwaggerProperties swaggerProperties, GatewayProperties gatewayProperties) {
 		return new SwaggerProvider(swaggerProperties, gatewayProperties);

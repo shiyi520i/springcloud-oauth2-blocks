@@ -25,7 +25,7 @@ import java.nio.charset.StandardCharsets;
 @RequiredArgsConstructor
 public class SwaggerBasicGatewayFilter implements GlobalFilter {
 
-	private static final String API_URI = "/v3/api-docs";
+	private static final String API_URI = "/v2/api-docs";
 
 	private static final String BASIC_PREFIX = "Basic ";
 
