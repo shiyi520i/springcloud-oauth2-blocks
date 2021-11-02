@@ -15,6 +15,7 @@
         <module>spring-cloud-gateway</module>
         <module>spring-cloud-pt</module>
         <module>spring-cloud-ct</module>
+        <module>spring-cloud-visual</module>
     </modules>
     <packaging>pom</packaging>
 

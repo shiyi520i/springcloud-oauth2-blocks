@@ -105,6 +105,10 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
      */
     @Bean
     public TokenStore tokenStore() {
+        //使用redis
+        /*RedisTokenStore redisTokenStore = new RedisTokenStore(redisConnectionFactory);
+        redisTokenStore.setPrefix("auth-token:");
+        return redisTokenStore;*/
         return new JwtTokenStore(accessTokenConverter());
     }
 
@@ -129,12 +133,16 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     public AuthorizationServerTokenServices tokenService() {
         DefaultTokenServices service=new DefaultTokenServices();
         service.setClientDetailsService(clientDetailsService);
-        service.setSupportRefreshToken(true); service.setTokenStore(tokenStore);
+        //开启支持refresh_token
+        service.setSupportRefreshToken(true);
+        //复用refresh_token
+        //service.setReuseRefreshToken(true);
+        service.setTokenStore(tokenStore);
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(Arrays.asList(accessTokenConverter));
         service.setTokenEnhancer(tokenEnhancerChain);
-        service.setAccessTokenValiditySeconds(7200); // 令牌默认有效期2小时
-        service.setRefreshTokenValiditySeconds(259200); // 刷新令牌默认有效期3天
+        service.setAccessTokenValiditySeconds(12 * 60 * 60); // 令牌默认有效期12小时
+        service.setRefreshTokenValiditySeconds(7 * 24 * 60 * 60); // 刷新令牌默认有效期7天
         return service;
     }
 

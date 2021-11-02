@@ -56,12 +56,4 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter(); converter.setSigningKey(SIGNING_KEY); //对称秘钥，资源服务器使用该秘钥来解密
         return converter;
     }
-  /*  @Bean
-    public ResourceServerTokenServices tokenService() { //使用远程服务请求授权服务器校验token,必须指定校验token 的url、client_id，client_secret
-         RemoteTokenServices service=new RemoteTokenServices();
-         service.setCheckTokenEndpointUrl("http://localhost:8070/oauth/check_token");
-         service.setClientId("c1");
-         service.setClientSecret("secret");
-         return service; }*/
-
 }
