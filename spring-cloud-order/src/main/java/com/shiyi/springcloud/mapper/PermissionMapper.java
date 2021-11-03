@@ -17,9 +17,14 @@ import java.util.List;
  */
 @Mapper
 public interface PermissionMapper extends BaseMapper<Permission> {
+
+
+
     @Select("SELECT * FROM t_permission WHERE id IN(\n" +
             "SELECT permission_id FROM t_role_permission WHERE role_id IN(\n" +
             "SELECT role_id FROM t_user_role WHERE user_id = #{id} \n" + ")\n" + ")")
     List<Permission> getAll(String id);
+
+
 
 }

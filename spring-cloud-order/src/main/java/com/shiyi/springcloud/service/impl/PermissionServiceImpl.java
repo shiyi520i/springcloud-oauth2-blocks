@@ -21,8 +21,10 @@ import java.util.List;
  */
 @Service
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements IPermissionService {
+
     @Autowired
     private PermissionMapper permissionMapper;
+
     public List<String> getAll(String id){
         List<Permission> list = permissionMapper.getAll(id);
         List<String> permissions = new ArrayList<>();
@@ -30,4 +32,5 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         list.iterator().forEachRemaining(c->permissions.add(c.getCode()));
         return permissions;
     }
+
 }

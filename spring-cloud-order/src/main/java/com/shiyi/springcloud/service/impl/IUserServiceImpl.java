@@ -5,8 +5,11 @@ import com.shiyi.springcloud.pojo.User;
 import com.shiyi.springcloud.mapper.UserMapper;
 import com.shiyi.springcloud.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,8 +21,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IUserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
-      @Autowired
+
+    @Autowired
     private UserMapper userMapper;
 
+    public User getAllByUsername(String username) {
+        List<User> users = userMapper.getAllByUsername(username);
+        if (users == null && users.size() <= 0) {
+            return null;
+        } else {
+            return users.get(0);
+        }
 
+    }
 }

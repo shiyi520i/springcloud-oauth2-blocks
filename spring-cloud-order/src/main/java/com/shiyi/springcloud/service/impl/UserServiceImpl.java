@@ -1,6 +1,6 @@
 package com.shiyi.springcloud.service.impl;
 
-import com.shiyi.springcloud.service.impl.IUserServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,21 +18,22 @@ import java.util.List;
  */
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserDetailsService {
+
     @Autowired
     private PermissionServiceImpl permissionService;
+
     @Autowired
     private IUserServiceImpl userService;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
-        //TODO
-        //List<String> permissions = userService.getAll(user.getId());
-        List<String> permissions = permissionService.getAll("");
+        com.shiyi.springcloud.pojo.User user = userService.getAllByUsername(s);
+        List<String> permissions = permissionService.getAll(user.getId().toString());
         String[] perarray = new String[permissions.size()];
         permissions.toArray(perarray);
 
-            UserDetails userDetails = User.withUsername("zhangsan").password("$2a$10$NlBC84MVb7F95EXYTXwLneXgCca6/GipyWR5NHm8K0203bSQMLpvm").authorities("p1").build();//perarray
+            UserDetails userDetails = User.withUsername(user.getUsername()).password(user.getPassword()).authorities(perarray).build();
             return userDetails;
         }
     }

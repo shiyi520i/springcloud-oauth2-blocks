@@ -62,5 +62,11 @@ management:
 server:
   port: 9527
 
+####    swagger    ####
+swagger:
+  basic:
+    enabled: true
+    username: zhangsan
+    password: 123
 
 
