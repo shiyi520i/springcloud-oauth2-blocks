@@ -1,6 +1,7 @@
 package com.shiyi.springcloud.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -22,8 +23,11 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
-    private String SIGNING_KEY = "uaa123";
-    public static final String RESOURCE_ID = "res1";
+
+    @Value("${security.signingKey:uaa123}")
+    private String SIGNING_KEY;
+
+    public static final String RESOURCE_ID="res1";
 
     @Autowired
     @Lazy
@@ -40,8 +44,8 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/**")
-                .access("#oauth2.hasScope('all')")
-                //.permitAll()
+                //.access("#oauth2.hasScope('all')")
+                .permitAll()
                 .antMatchers("/v2/**")
                 .permitAll()
                 .and()
@@ -56,7 +60,8 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
-        JwtAccessTokenConverter converter = new JwtAccessTokenConverter(); converter.setSigningKey(SIGNING_KEY); //对称秘钥，资源服务器使用该秘钥来解密
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setSigningKey(SIGNING_KEY); //对称秘钥，资源服务器使用该秘钥来解密
         return converter;
     }
 }

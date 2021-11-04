@@ -18,9 +18,9 @@ import java.util.List;
 public class ResouceSecurityProperties {
 
 	/**
-	 * 是否开启swagger
+	 * 资源服务器解密秘钥
 	 */
-	private Boolean enabled = true;
+	private String signingKey = "null";
 
 	/**
 	 * swagger会解析的包路径

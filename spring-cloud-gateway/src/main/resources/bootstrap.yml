@@ -64,9 +64,8 @@ server:
 
 ####    swagger    ####
 swagger:
-  basic:
-    enabled: true
-    username: zhangsan
-    password: 123
+  authorization:
+    name: "token"
+
 
 

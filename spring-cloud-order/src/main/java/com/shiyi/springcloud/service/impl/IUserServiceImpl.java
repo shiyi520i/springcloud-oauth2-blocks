@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -26,12 +27,7 @@ public class IUserServiceImpl extends ServiceImpl<UserMapper, User> implements I
     private UserMapper userMapper;
 
     public User getAllByUsername(String username) {
-        List<User> users = userMapper.getAllByUsername(username);
-        if (users == null && users.size() <= 0) {
-            return null;
-        } else {
-            return users.get(0);
-        }
-
+       List<User> users = userMapper.getByUsername(username);
+       return users.size()>0?users.stream().filter(user -> user != null).limit(1).collect(Collectors.toList()).get(0):null;
     }
 }
