@@ -19,7 +19,7 @@
 | Mybatis Plus           | 3.4.3.4  |
 | hutool                 | 5.7.14   |
 ### 模块说明
-在线文档：[https://www.yuque.com/books](https://www.yuque.com/books/share/60e932cd-7c05-41ba-986d-281bbf5503b0?# 《blocks》)
+在线文档：<https://www.yuque.com/books/share/60e932cd-7c05-41ba-986d-281bbf5503b0?# 《blocks》>
 ```markdown
 模块说明blocks    
 springcloudplus
