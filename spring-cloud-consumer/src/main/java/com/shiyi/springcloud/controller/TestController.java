@@ -11,15 +11,15 @@ import org.springframework.web.client.RestOperations;
  * @author ：ShiYI
  * @date ：Created in 2021/10/14
  */
-@RestController
+/*@RestController
 public class TestController {
     @Autowired
     private  RestOperations restTemplate;
-    /*@Autowired
-    private  RestTemplate restTemplate;*/
+    *//*@Autowired
+    private  RestTemplate restTemplate;*//*
 
     @RequestMapping(value = "/echo/{str}", method = RequestMethod.GET)
     public String echo(@PathVariable String str) {
         return restTemplate.getForObject("http://spring-cloud-order/echo/" + str, String.class);
     }
-}
+}*/

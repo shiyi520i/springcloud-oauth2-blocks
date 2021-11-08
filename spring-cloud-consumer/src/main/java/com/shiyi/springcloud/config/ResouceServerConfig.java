@@ -1,6 +1,7 @@
 package com.shiyi.springcloud.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -23,7 +24,13 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @EnableResourceServer
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
-    private String SIGNING_KEY = "uaa123";
+
+    @Value("${security.signingKey:uaa123}")
+    private String SIGNING_KEY;
+
+    @Value("${security.needscope:111}")
+    public String NEED_SCOPE;
+
     public static final String RESOURCE_ID = "res1";
 
     @Autowired
@@ -40,7 +47,8 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/**")
-                .access("#oauth2.hasScope('all')")
+                //.access("#oauth2.hasScope('all')")
+                .authenticated()
                 .and()
                 .csrf().disable()
                 .sessionManagement()

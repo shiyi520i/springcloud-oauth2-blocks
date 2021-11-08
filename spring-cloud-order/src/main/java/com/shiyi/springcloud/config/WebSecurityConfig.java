@@ -18,12 +18,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 //@EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true,prePostEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
-     *  密码编码方式
-     * @author ShiYi
+     * 密码编码方式
+     *
      * @return org.springframework.security.crypto.password.PasswordEncoder
+     * @author ShiYi
      * @date 2021/10/18 10:09
      */
     @Bean
@@ -33,13 +34,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean(); }
+        return super.authenticationManagerBean();
+    }
 
     /**
-     *  安全拦截机制
-     * @author ShiYi
+     * 安全拦截机制
+     *
      * @param http
      * @return void
+     * @author ShiYi
      * @date 2021/10/18 10:10
      */
     @Override
@@ -55,5 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin();
+
     }
 }
+

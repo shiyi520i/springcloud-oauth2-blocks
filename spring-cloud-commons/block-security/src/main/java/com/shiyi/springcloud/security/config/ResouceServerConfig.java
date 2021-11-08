@@ -27,6 +27,7 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
     @Value("${security.signingKey:uaa123}")
     private String SIGNING_KEY;
 
+
     public static final String RESOURCE_ID="res1";
 
     @Autowired
@@ -44,10 +45,7 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/**")
-                //.access("#oauth2.hasScope('all')")
-                .permitAll()
-                .antMatchers("/v2/**")
-                .permitAll()
+                .authenticated()
                 .and()
                 .csrf().disable()
                 .sessionManagement()
