@@ -23,10 +23,10 @@ spring:
          enabled: true
       routes:
           # 系统模块
-        - id: spring-cloud-order
-          uri: lb://spring-cloud-order
+        - id: spring-cloud-oauth2
+          uri: lb://spring-cloud-oauth2
           predicates:
-           - Path=/spring-cloud-order/**
+           - Path=/spring-cloud-oauth2/**
           filters:
               #- SwaggerHeaderFilter
               #- StripPrefix=1

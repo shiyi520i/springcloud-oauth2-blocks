@@ -12,10 +12,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableBlockSwagger3
 @SpringBootApplication
 @EnableDiscoveryClient
-public class OrderApplication {
+public class BlocksAuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderApplication.class, args);
+        SpringApplication.run(BlocksAuthApplication.class, args);
     }
 
     }
