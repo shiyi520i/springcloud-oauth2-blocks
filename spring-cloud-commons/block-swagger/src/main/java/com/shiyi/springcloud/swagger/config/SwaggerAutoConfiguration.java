@@ -87,7 +87,7 @@ public class SwaggerAutoConfiguration {
 
 		pars.add(versionPar.build());
 
-		ApiSelectorBuilder builder = new Docket(DocumentationType.OAS_30).host(swaggerProperties.getHost())
+		ApiSelectorBuilder builder = new Docket(DocumentationType.SWAGGER_2).host(swaggerProperties.getHost())
 				.apiInfo(apiInfo(swaggerProperties)).globalRequestParameters(pars).select()
 				.apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackage()));
 

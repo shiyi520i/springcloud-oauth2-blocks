@@ -37,7 +37,7 @@ public class MyGenerator {
                     builder.author("ShiYi") // 设置作者
                             .disableOpenDir()//禁止打开输出目录
                             .enableSwagger() // 开启 swagger 模式
-                            //.fileOverride() // 覆盖已生成文件
+                            .fileOverride() // 覆盖已生成文件
                             .outputDir(System.getProperty("user.dir")+"/"+modelName+"/src/main/java"); // 指定输出目录
                 })
                 .packageConfig(builder -> {
@@ -61,7 +61,9 @@ public class MyGenerator {
                             .controllerBuilder()//controller配置
                             .enableRestStyle()//开启restcontroller
                             .mapperBuilder()
-                            .enableMapperAnnotation();//开启mapper注解
+                            .enableMapperAnnotation()//开启mapper注解
+                            .enableBaseResultMap()//启用 BaseResultMap 生成
+                            .enableBaseColumnList();//启用 BaseColumnList
                 })
                 //.templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                 .execute();
