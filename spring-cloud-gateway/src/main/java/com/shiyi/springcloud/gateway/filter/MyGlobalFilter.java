@@ -23,7 +23,7 @@ public class MyGlobalFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        /*String name = exchange.getRequest().getQueryParams().getFirst("name");//获取请求的参数，进行验证
+        /*String name = exchange.getRequest().getQueryParams().getFirst("name");// 请求头 获取请求的参数，进行验证
         if (name==null){
             log.info("请求的参数为空，数据异常");
             exchange.getResponse().setStatusCode(HttpStatus.NOT_ACCEPTABLE);
