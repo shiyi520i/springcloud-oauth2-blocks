@@ -22,11 +22,15 @@
 在线文档：<https://www.yuque.com/books/share/60e932cd-7c05-41ba-986d-281bbf5503b0?# 《blocks》>
 ```markdown
 模块说明blocks    
-springcloudplus
-├── spring-cloud-auth -- 授权服务提供[3000] [未完成]
+blocks
+├── spring-cloud-oauth2 -- 授权服务提供[8070] 
 └── spring-cloud-commons -- 系统公共模块
      ├── block-swagger -- swagger模块
+     ├── block-security -- 安全模块
+     ├── block-mybatisplus -- mybatis模块
      ├── block-test -- 测试模块
-├── pig-register -- Nacos Server[8848]
-├── spring-cloud-gateway -- Spring Cloud Gateway网关[9527] 
+├── spring-cloud-register -- Nacos Server[8848][未完成]
+├── spring-cloud-gateway -- Spring Cloud Gateway网关[9527]
+└── spring-cloud-visual
+     └── blocks-sentinel -- 流控模块 [5001][未完成]
 ```
