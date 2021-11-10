@@ -33,4 +33,5 @@ blocks
 ├── spring-cloud-gateway -- Spring Cloud Gateway网关[9527]
 └── spring-cloud-visual
      └── blocks-sentinel -- 流控模块 [5001][未完成]
+     └── blocks-monitor -- 服务监控 [5002][未完成]
 ```
