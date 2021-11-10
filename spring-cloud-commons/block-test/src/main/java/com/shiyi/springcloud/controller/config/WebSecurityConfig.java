@@ -1,4 +1,4 @@
-package com.shiyi.springcloud.config;
+package com.shiyi.springcloud.controller.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
