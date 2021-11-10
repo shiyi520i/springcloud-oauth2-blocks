@@ -1,4 +1,4 @@
-package com.shiyi.springcloud.config;
+package com.shiyi.springcloud.controller.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

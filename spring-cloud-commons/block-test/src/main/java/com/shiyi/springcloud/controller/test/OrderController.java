@@ -1,4 +1,4 @@
-package com.shiyi.springcloud.controller;
+package com.shiyi.springcloud.controller.test;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;

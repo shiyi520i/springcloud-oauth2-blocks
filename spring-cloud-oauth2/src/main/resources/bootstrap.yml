@@ -12,7 +12,7 @@ spring:
         file-extension: yml
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-  profiles:
-    active: @profiles.active@
+  #profiles:
+   # active: @profiles.active@
 
 

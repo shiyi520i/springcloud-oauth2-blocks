@@ -3,16 +3,20 @@ package com.shiyi.springcloud;
 import com.shiyi.springcloud.swagger.annotation.EnableBlockSwagger3;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @author ：ShiYI
- * @date ：Created in 2021/9/30
+ * @date ：Created in 2021/10/14
  */
 @EnableBlockSwagger3
 @SpringBootApplication
-public class OApplication {
+@EnableDiscoveryClient
+public class BlocksAuthApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(OApplication.class,args);
+        SpringApplication.run(BlocksAuthApplication.class, args);
     }
-}
+
+    }
+
